@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Implementación 4 Meses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        .text-navy { color: #0A1931; }
+        .bg-navy { background-color: #0A1931; }
+        .text-babyblue { color: #5B92E5; }
+        .border-babyblue { border-color: #5B92E5; }
+        
+        /* Estilos de la línea de tiempo */
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #e5e7eb;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .timeline-item-content {
+            width: 45%;
+            padding: 1.5rem;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .timeline-item-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+        }
+
+        .left-content {
+            margin-right: 5%;
+        }
+        .left-content::after {
+            right: -14px;
+            border-left-color: #ffffff;
+        }
+
+        .right-content {
+            margin-left: 5%;
+        }
+        .right-content::after {
+            left: -14px;
+            border-right-color: #ffffff;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-item-content {
+            order: 1;
+        }
+        .timeline-item:nth-child(even) .timeline-item-content {
+            order: 3;
+        }
+        
+        .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background-color: #5B92E5;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 15px;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 3px #5B92E5;
+        }
+
+        /* Mobile Adjustments (Stacks Content) */
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 20px;
+                transform: translateX(0);
+            }
+            .timeline-item {
+                display: block;
+            }
+            .timeline-item-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+            .timeline-item-content::after {
+                left: -14px;
+                right: auto;
+                border-left-color: transparent;
+                border-right-color: #ffffff;
+            }
+            .timeline-dot {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Estilos específicos para la checklist interactiva de 3 estados */
+        .action-item-button {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0.5rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            text-align: left;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .action-item-button:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .status-icon {
+            width: 2rem;
+            height: 2rem;
+            min-width: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+            border: 2px solid #e5e7eb;
+        }
+
+        /* Colores de estado */
+        .status-0 .status-icon { /* Pendiente */
+            background-color: #ffffff;
+            color: #9ca3af;
+        }
+        .status-1 .status-icon { /* En Proceso */
+            background-color: #fde68a; /* Amarillo Suave */
+            color: #92400e;
+        }
+        .status-2 .status-icon { /* Completado */
+            background-color: #34d399; /* Verde Esmeralda */
+            color: white;
+        }
+        .status-2 .action-description {
+            text-decoration: line-through;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8">
+
+    <div class="container mx-auto max-w-5xl">
+        
+        <header class="text-center mb-10 pb-4 border-b-4 border-babyblue">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-navy mb-2">🚀 Guía de Implementación de la Política de Comunicación</h1>
+            <h2 class="text-xl md:text-2xl text-gray-600 font-medium">Cronograma de 4 Meses para la Adopción y Medición de Nuevas Prácticas.</h2>
+        </header>
+
+        <!-- Glosario de Estados -->
+        <div class="bg-blue-50 p-6 rounded-xl mb-10 border-l-8 border-babyblue shadow-md">
+            <h3 class="text-xl font-bold text-navy mb-3 flex items-center">
+                <span class="text-babyblue mr-2">📚</span> Glosario de Estados de Tarea
+            </h3>
+            <div class="flex flex-wrap gap-6 text-sm">
+                <div class="flex items-center">
+                    <div class="status-icon bg-white border-gray-300 text-gray-500">⚪</div>
+                    <span class="font-semibold">Pendiente:</span> Tarea no iniciada.
+                </div>
+                <div class="flex items-center">
+                    <div class="status-icon bg-yellow-200 text-yellow-800">🕒</div>
+                    <span class="font-semibold">En Proceso:</span> Tarea en curso.
+                </div>
+                <div class="flex items-center">
+                    <div class="status-icon bg-green-400 text-white">✅</div>
+                    <span class="font-semibold">Completado:</span> Tarea finalizada.
+                </div>
+            </div>
+            <p class="text-xs mt-3 text-gray-500 italic">Haz clic en cada acción para alternar su estado.</p>
+        </div>
+
+        <!-- Kick Off Section -->
+        <div id="kickoff-section" class="bg-yellow-50 p-6 rounded-xl mb-10 border-l-8 border-yellow-500 shadow-md">
+            <h3 class="text-2xl font-bold text-navy mb-3 flex items-center">
+                <span class="text-yellow-600 mr-2">📢</span> Kick-off: Sensibilización (El Porqué)
+            </h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div>
+                    <span class="detail-label">Objetivo</span>
+                    <p>Generar comprensión sobre la razón del cambio y los beneficios individuales/organizacionales de la nueva política.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <span class="detail-label">Actividades Clave</span>
+                    <ul class="ml-2 text-sm space-y-2" id="kickoff-list">
+                        <!-- Las tareas se inyectan aquí -->
+                        <li id="kickoff-1" class="action-item-button status-0" onclick="toggleStatus('kickoff-1')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">Sesiones de Town Hall lideradas por Dirección General.</span>
+                        </li>
+                        <li id="kickoff-2" class="action-item-button status-0" onclick="toggleStatus('kickoff-2')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">Campaña interna enfocada en la eliminación de reprocesos y la trazabilidad.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="detail-label">Responsables</span>
+                    <p class="font-semibold text-red-600">Dirección General, Recursos Humanos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="timeline-container">
+
+            <!-- Mes 1 -->
+            <div class="timeline-item">
+                <div class="timeline-item-content left-content">
+                    <h4 class="text-xl font-bold mb-2 text-babyblue">🎯 Mes 1 – Fundamentos</h4>
+                    <span class="detail-label">Objetivo</span>
+                    <p class="text-gray-700 mb-3">Establecer bases de comunicación externa e iniciar documentación sistemática.</p>
+                    <span class="detail-label">Acciones</span>
+                    <ul class="ml-4 text-sm space-y-2 text-gray-600">
+                        <li id="mes1-1" class="action-item-button status-0" onclick="toggleStatus('mes1-1')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📲 Crear grupos de WhatsApp con clientes activos según las etapas definidas (Flujo Anexo).</span>
+                        </li>
+                        <li id="mes1-2" class="action-item-button status-0" onclick="toggleStatus('mes1-2')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📌 Capacitar a ejecutivos, ingenieros y líderes sobre buenas prácticas de grupos externos.</span>
+                        </li>
+                        <li id="mes1-3" class="action-item-button status-0" onclick="toggleStatus('mes1-3')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">✅ Validar que cada interacción relevante esté siendo registrada en **CRM** (auditoría aleatoria semanal).</span>
+                        </li>
+                        <li id="mes1-4" class="action-item-button status-0" onclick="toggleStatus('mes1-4')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📣 Comunicar el inicio de implementación a todo el equipo.</span>
+                        </li>
+                        <li id="mes1-5" class="action-item-button status-0" onclick="toggleStatus('mes1-5')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📝 Levantar encuesta de adopción al final del mes (Pulso #1).</span>
+                        </li>
+                    </ul>
+                    <span class="detail-label mt-3">Responsable</span>
+                    <p class="font-semibold text-sm">Comercial, Ingeniería, Recursos Humanos.</p>
+                </div>
+                <div class="timeline-dot">1</div>
+                <div></div>
+            </div>
+
+            <!-- Mes 2 -->
+            <div class="timeline-item">
+                <div></div>
+                <div class="timeline-dot">2</div>
+                <div class="timeline-item-content right-content">
+                    <h4 class="text-xl font-bold mb-2 text-babyblue">🎯 Mes 2 – Consolidación Operativa</h4>
+                    <span class="detail-label">Objetivo</span>
+                    <p class="text-gray-700 mb-3">Integrar herramientas clave y reforzar registros internos.</p>
+                    <span class="detail-label">Acciones</span>
+                    <ul class="ml-4 text-sm space-y-2 text-gray-600">
+                        <li id="mes2-1" class="action-item-button status-0" onclick="toggleStatus('mes2-1')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">🔗 Integrar CRM con Slack (proyecto + canal automático o flujo).</span>
+                        </li>
+                        <li id="mes2-2" class="action-item-button status-0" onclick="toggleStatus('mes2-2')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📁 Aperturar canales oficiales en Slack: #vacaciones, #viáticos, #mantenimientos, etc.</span>
+                        </li>
+                        <li id="mes2-3" class="action-item-button status-0" onclick="toggleStatus('mes2-3')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">🧭 Capacitación intermedia de Slack (estados, canales, menciones, buenas prácticas).</span>
+                        </li>
+                        <li id="mes2-4" class="action-item-button status-0" onclick="toggleStatus('mes2-4')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📌 Asegurar el uso correcto del CRM por parte de todo el equipo (cotizaciones, notas, acuerdos).</span>
+                        </li>
+                        <li id="mes2-5" class="action-item-button status-0" onclick="toggleStatus('mes2-5')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📊 Validar reportes mensuales de uso CRM y Slack por área.</span>
+                        </li>
+                        <li id="mes2-6" class="action-item-button status-0" onclick="toggleStatus('mes2-6')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📣 Comunicar avances y reconocer áreas destacadas.</span>
+                        </li>
+                    </ul>
+                    <span class="detail-label mt-3">Responsable</span>
+                    <p class="font-semibold text-sm">Ingeniería/Sistemas, Administración, Recursos Humanos.</p>
+                </div>
+            </div>
+
+            <!-- Mes 3 -->
+            <div class="timeline-item">
+                <div class="timeline-item-content left-content">
+                    <h4 class="text-xl font-bold mb-2 text-babyblue">🎯 Mes 3 – Transformación Interna</h4>
+                    <span class="detail-label">Objetivo</span>
+                    <p class="text-gray-700 mb-3">Migrar comunicación interna completamente a Slack y fortalecer automatización.</p>
+                    <span class="detail-label">Acciones</span>
+                    <ul class="ml-4 text-sm space-y-2 text-gray-600">
+                        <li id="mes3-1" class="action-item-button status-0" onclick="toggleStatus('mes3-1')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📥 Migrar toda la comunicación interna a Slack (cierre de chats informales o paralelos).</span>
+                        </li>
+                        <li id="mes3-2" class="action-item-button status-0" onclick="toggleStatus('mes3-2')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">🎯 Configurar estados personalizados por usuario (vacaciones, comida, enfocado).</span>
+                        </li>
+                        <li id="mes3-3" class="action-item-button status-0" onclick="toggleStatus('mes3-3')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">💬 Capacitación avanzada de Slack (hilos, apps, automatizaciones, Agente IA).</span>
+                        </li>
+                        <li id="mes3-4" class="action-item-button status-0" onclick="toggleStatus('mes3-4')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📈 Revisión de indicadores clave (reacción a mensajes, tiempos de respuesta, número de registros en CRM).</span>
+                        </li>
+                        <li id="mes3-5" class="action-item-button status-0" onclick="toggleStatus('mes3-5')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📝 Levantar encuesta de adopción interna (Pulso #2).</span>
+                        </li>
+                    </ul>
+                    <span class="detail-label mt-3">Responsable</span>
+                    <p class="font-semibold text-sm">Recursos Humanos, Líderes de Área.</p>
+                </div>
+                <div class="timeline-dot">3</div>
+                <div></div>
+            </div>
+
+            <!-- Mes 4 -->
+            <div class="timeline-item">
+                <div></div>
+                <div class="timeline-dot">4</div>
+                <div class="timeline-item-content right-content">
+                    <h4 class="text-xl font-bold mb-2 text-babyblue">🎯 Mes 4 – Medición y Optimización</h4>
+                    <span class="detail-label">Objetivo</span>
+                    <p class="text-gray-700 mb-3">Evaluar resultados, ajustar y dejar instaladas las nuevas prácticas.</p>
+                    <span class="detail-label">Acciones</span>
+                    <ul class="ml-4 text-sm space-y-2 text-gray-600">
+                        <li id="mes4-1" class="action-item-button status-0" onclick="toggleStatus('mes4-1')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📊 Revisión general de indicadores por área y globales.</span>
+                        </li>
+                        <li id="mes4-2" class="action-item-button status-0" onclick="toggleStatus('mes4-2')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">🛠 Ajustes a flujos o prácticas donde haya baja adopción.</span>
+                        </li>
+                        <li id="mes4-3" class="action-item-button status-0" onclick="toggleStatus('mes4-3')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">🎓 Refuerzo puntual de capacitaciones (Slack, CRM, registro de acuerdos).</span>
+                        </li>
+                        <li id="mes4-4" class="action-item-button status-0" onclick="toggleStatus('mes4-4')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📣 Compartir reporte de avances con Dirección y todo el equipo.</span>
+                        </li>
+                        <li id="mes4-5" class="action-item-button status-0" onclick="toggleStatus('mes4-5')">
+                            <span class="status-icon">⚪</span>
+                            <span class="action-description">📌 Formalizar el cierre de la etapa de implementación con el **Checklist de Cumplimiento** por área.</span>
+                        </li>
+                    </ul>
+                    <span class="detail-label mt-3">Responsable</span>
+                    <p class="font-semibold text-sm">Dirección General, Recursos Humanos, Líderes de Área.</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <footer class="text-center mt-12 text-gray-500 text-sm border-t border-gray-300 pt-4">
+            <p>Guía de Implementación y Cronograma | SUMINSA | Versión: Septiembre 2025</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const TASK_PREFIX = 'task_status_';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProgress();
+        });
+
+        function getStatusIcon(status) {
+            switch (status) {
+                case 1: return '🕒'; // En Proceso
+                case 2: return '✅'; // Completado
+                default: return '⚪'; // Pendiente (0)
+            }
+        }
+
+        function toggleStatus(id) {
+            const element = document.getElementById(id);
+            if (!element) return;
+
+            let currentStatus = parseInt(localStorage.getItem(TASK_PREFIX + id) || 0);
+            
+            // Ciclo de estados: 0 -> 1 -> 2 -> 0
+            let newStatus = (currentStatus + 1) % 3; 
+
+            // Actualiza la clase y el icono
+            element.className = `action-item-button status-${newStatus}`;
+            element.querySelector('.status-icon').textContent = getStatusIcon(newStatus);
+            
+            // Guarda el nuevo estado
+            saveProgress(id, newStatus);
+        }
+
+        function saveProgress(taskId, status) {
+            // Guarda el estado numérico (0, 1, 2) en localStorage
+            localStorage.setItem(TASK_PREFIX + taskId, status.toString());
+        }
+
+        function loadProgress() {
+            // Carga el estado al iniciar la página
+            document.querySelectorAll('.action-item-button').forEach(button => {
+                const taskId = button.id;
+                const savedStatus = parseInt(localStorage.getItem(TASK_PREFIX + taskId) || 0);
+                
+                // Aplica la clase de estado y el icono
+                button.className = `action-item-button status-${savedStatus}`;
+                button.querySelector('.status-icon').textContent = getStatusIcon(savedStatus);
+            });
+        }
+    </script>
+</body>
+</html>

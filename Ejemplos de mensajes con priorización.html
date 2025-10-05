@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de Priorización de Mensajes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        .text-navy { color: #0A1931; }
+        .bg-navy { background-color: #0A1931; }
+        .text-babyblue { color: #5B92E5; }
+        .border-babyblue { border-color: #5B92E5; }
+        .priority-card {
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            color: #0A1931;
+        }
+        .priority-high { border-left: 5px solid #EF4444; background-color: #FEE2E2; }
+        .priority-medium { border-left: 5px solid #F59E0B; background-color: #FEF3C7; }
+        .priority-low { border-left: 5px solid #10B981; background-color: #D1FAE5; }
+        .icon-tag {
+            font-weight: 700;
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.25rem;
+        }
+        .message-box {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .response-box {
+            background-color: #f3f4f6;
+            border: 1px dashed #d1d5db;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8">
+
+    <div class="container mx-auto max-w-4xl">
+        
+        <header class="text-center mb-10 pb-4 border-b-4 border-babyblue">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-navy mb-2">🚥 Ejemplos de Mensajes con Priorización</h1>
+            <h2 class="text-xl md:text-2xl text-gray-600 font-medium">Guía para clasificar la urgencia de tus solicitudes internas</h2>
+        </header>
+
+        <!-- Estructura del Mensaje -->
+        <div class="p-6 bg-blue-100 rounded-xl shadow-inner mb-10 border border-babyblue">
+            <h3 class="text-2xl font-bold text-navy mb-4">💬 ¿Cómo debe estructurarse el mensaje?</h3>
+            <div class="table-responsive">
+                <table class="min-w-full text-left bg-white rounded-lg overflow-hidden">
+                    <thead>
+                        <tr class="bg-navy text-white text-sm">
+                            <th class="p-3">Elemento</th>
+                            <th class="p-3">¿Qué incluir?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="p-3 font-semibold">👤 Responsable</td>
+                            <td class="p-3">Etiquetar al área o persona receptora (ej: `@compras`).</td>
+                        </tr>
+                        <tr class="border-b bg-gray-50">
+                            <td class="p-3 font-semibold">📝 Descripción</td>
+                            <td class="p-3">Clara y breve de la solicitud o contexto.</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-semibold">🕒 Fecha Límite</td>
+                            <td class="p-3">Fecha exacta o urgencia (si aplica).</td>
+                        </tr>
+                        <tr class="border-b bg-gray-50">
+                            <td class="p-3 font-semibold">🔺 Nivel de Prioridad</td>
+                            <td class="p-3">Indicar **Alta**, **Media** o **Baja** para establecer expectativas.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">✅ Confirmación</td>
+                            <td class="p-3">Esperar confirmación de lectura (emoji o texto).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-navy mb-5 text-center">Ejemplos por Nivel de Prioridad</h2>
+
+        <!-- PRIORIDAD ALTA -->
+        <div class="priority-card priority-high">
+            <h3 class="text-xl font-bold text-red-600 mb-3 flex items-center">
+                <span class="icon-tag">🔴</span> Prioridad ALTA
+            </h3>
+            <p class="text-sm text-gray-700 mb-3">**Uso:** Temas urgentes con impacto directo en cliente, producción o facturación. Requiere atención **inmediata** (mismo día o próximas 4h).</p>
+            
+            <div class="message-box">
+                <p class="font-mono text-xs text-red-600 font-bold mb-1">Solicitud Original:</p>
+                <p class="font-bold">@compras Urgente 🚨</p>
+                <p>Cliente Nestlé validó plano y requiere válvula modelo Z123 para instalación del viernes.</p>
+                <p>Ya tenemos PO y fecha comprometida.</p>
+                <p>¿Pueden ayudar a gestionarlo hoy mismo? 🙏</p>
+                <p class="mt-2 font-bold text-red-600">Prioridad: ALTA</p>
+
+                <p class="font-mono text-xs text-green-700 font-bold mt-4 mb-1">Respuesta Esperada (Slack):</p>
+                <div class="response-box bg-green-50">
+                    <p>✅ Recibido, en proceso.</p>
+                    <p>ó</p>
+                    <p>✅ Lo veo ahora mismo.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRIORIDAD MEDIA -->
+        <div class="priority-card priority-medium">
+            <h3 class="text-xl font-bold text-yellow-600 mb-3 flex items-center">
+                <span class="icon-tag">🟡</span> Prioridad MEDIA
+            </h3>
+            <p class="text-sm text-gray-700 mb-3">**Uso:** Requiere atención en los próximos **2 a 3 días**. No es urgente, pero tiene plazo definido.</p>
+            
+            <div class="message-box">
+                <p class="font-mono text-xs text-yellow-600 font-bold mb-1">Solicitud Original:</p>
+                <p class="font-bold">@ingenieria</p>
+                <p>El cliente LALA nos pidió ajustar el plano con las nuevas medidas del túnel.</p>
+                <p>Lo ocupamos antes del jueves para poder enviar cotización.</p>
+                <p class="mt-2 font-bold text-yellow-600">Prioridad: MEDIA</p>
+
+                <p class="font-mono text-xs text-green-700 font-bold mt-4 mb-1">Respuesta Esperada (Slack):</p>
+                <div class="response-box bg-green-50">
+                    <p>👀 Recibido, te lo envío antes del miércoles.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRIORIDAD BAJA -->
+        <div class="priority-card priority-low">
+            <h3 class="text-xl font-bold text-green-600 mb-3 flex items-center">
+                <span class="icon-tag">🟢</span> Prioridad BAJA
+            </h3>
+            <p class="text-sm text-gray-700 mb-3">**Uso:** Tareas sin urgencia inmediata. Pueden resolverse en el transcurso de la semana o según carga de trabajo.</p>
+            
+            <div class="message-box">
+                <p class="font-mono text-xs text-green-600 font-bold mb-1">Solicitud Original:</p>
+                <p class="font-bold">@finanzas</p>
+                <p>Cuando tengan oportunidad, favor de revisar si quedó aplicada la nota de crédito del cliente Bimbo (julio).</p>
+                <p>No es urgente.</p>
+                <p class="mt-2 font-bold text-green-600">Prioridad: BAJA</p>
+
+                <p class="font-mono text-xs text-green-700 font-bold mt-4 mb-1">Respuesta Esperada (Slack):</p>
+                <div class="response-box bg-green-50">
+                    <p>👍 Lo reviso esta semana.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejemplo de NO CUMPLIMIENTO -->
+        <div class="priority-card priority-high">
+            <h3 class="text-xl font-bold text-red-600 mb-3 flex items-center">
+                <span class="icon-tag">🔴</span> Prioridad ALTA: Gestión de No Cumplimiento
+            </h3>
+            <p class="text-sm text-gray-700 mb-3">Si el tiempo de respuesta no se puede cumplir, se debe **comunicar proactivamente** la nueva fecha y escalar, si es necesario.</p>
+            
+            <div class="message-box">
+                <p class="font-mono text-xs text-red-600 font-bold mb-1">Solicitud Original:</p>
+                <p class="font-bold">@ingenieria Urgente 🚨</p>
+                <p>Cliente Pepsico confirmó instalación para este viernes 13/oct. Necesitamos el plano con las medidas ajustadas para enviarlo hoy mismo a Logística. Prioridad: ALTA. ¿Nos puedes apoyar antes de las 3:00 pm? 🙏</p>
+
+                <p class="font-mono text-xs text-red-700 font-bold mt-4 mb-1">Respuesta Correcta del Área Receptora:</p>
+                <div class="response-box bg-red-50">
+                    <p>👀 Hola @comercial.pep.</p>
+                    <p>Revisé el caso, pero por carga actual **no podré entregarlo hoy**. El ajuste requiere validación técnica y lo tendría listo el **lunes 16/oct a primera hora**.</p>
+                    <p>Si el cliente no puede mover la fecha, dime y **buscamos con Dirección una solución alternativa.**</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-12 text-gray-500 text-sm border-t border-gray-300 pt-4">
+            <p>Anexo a la Política de Comunicación Organizacional | SUMINSA | Versión: Septiembre 2025</p>
+        </footer>
+
+    </div>
+</body>
+</html>

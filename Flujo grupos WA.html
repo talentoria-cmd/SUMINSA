@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flujo por Etapas de WhatsApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        .text-navy { color: #0A1931; }
+        .bg-navy { background-color: #0A1931; }
+        .text-babyblue { color: #5B92E5; }
+        .border-babyblue { border-color: #5B92E5; }
+        
+        /* Estilos del Acordeón */
+        .accordion-item {
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background-color: white;
+            transition: box-shadow 0.3s ease;
+        }
+        .accordion-item:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        .accordion-header {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background-color: #f3f4f6;
+            font-weight: 700;
+            text-align: left;
+            font-size: 1.15rem;
+            color: #0A1931;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .accordion-header:hover {
+            background-color: #e5e7eb;
+        }
+        .accordion-header.active {
+            background-color: #5B92E5;
+            color: white;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 1.5rem;
+            background-color: #ffffff;
+        }
+        .accordion-content.open {
+            max-height: 500px; /* Suficiente para contener el contenido */
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .detail-block {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .detail-block:last-child {
+            border-bottom: none;
+            padding-bottom: 0.5rem;
+        }
+        .detail-label {
+            display: block;
+            font-weight: 600;
+            color: #5B92E5;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        .arrow-icon {
+            transition: transform 0.3s ease;
+            font-size: 1.25rem;
+        }
+        .accordion-header.active .arrow-icon {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8">
+
+    <div class="container mx-auto max-w-4xl">
+        
+        <header class="text-center mb-10 pb-4 border-b-4 border-babyblue">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-navy mb-2">🧭 Flujo Interactivo de WhatsApp</h1>
+            <h2 class="text-xl md:text-2xl text-gray-600 font-medium">Define la creación, participantes y objetivo del grupo por etapa de ventas.</h2>
+        </header>
+
+        <div class="accordion-container shadow-lg">
+
+            <!-- Oportunidad Latente -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>1. Oportunidad Latente</span>
+                    <span class="arrow-icon">></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="detail-block">
+                        <span class="detail-label">¿Cuándo se crea?</span>
+                        <p>El cliente solicitó cotización o reunión técnica.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Participantes Mínimos</span>
+                        <p>Ejecutivo comercial, Gerente comercial, **Cliente**.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Acción Esperada / Objetivo</span>
+                        <p>Validar requerimientos, aclarar dudas, mantener cercanía y agilidad en la validación de la solución.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Venta Cerrada -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>2. Venta Cerrada</span>
+                    <span class="arrow-icon">></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="detail-block">
+                        <span class="detail-label">¿Cuándo se crea?</span>
+                        <p>Se recibió el PO / se formalizó la orden.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Participantes Mínimos</span>
+                        <p>Ejecutivo comercial, Gerente comercial, **Ingeniero responsable**, Coordinador o Gerente de Ingeniería, **Cliente**.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Acción Esperada / Objetivo</span>
+                        <p>Coordinar entregables técnicos, confirmar planos y fechas de producción. Asegurar el traspaso de información de Venta a Ejecución.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logística / Entrega -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>3. Logística / Entrega</span>
+                    <span class="arrow-icon">></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="detail-block">
+                        <span class="detail-label">¿Cuándo se crea?</span>
+                        <p>Se definió la fecha de instalación/envío.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Participantes Mínimos</span>
+                        <p>Participantes de Venta Cerrada **+ Operaciones (Logística)**.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Acción Esperada / Objetivo</span>
+                        <p>Confirmar entrega física, preparar la instalación y resolver contingencias de último momento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post-instalación / Soporte -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>4. Post-instalación / Soporte</span>
+                    <span class="arrow-icon">></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="detail-block">
+                        <span class="detail-label">¿Cuándo se crea?</span>
+                        <p>El equipo ya fue instalado y probado.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Participantes Mínimos</span>
+                        <p>Cliente, Ejecutivo comercial, Ingeniería.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Acción Esperada / Objetivo</span>
+                        <p>Se avisa que el grupo quedará abierto **20 días para soporte final** y documentación (protocolo de cierre).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garantía / Postventa -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>5. Garantía / Postventa</span>
+                    <span class="arrow-icon">></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="detail-block">
+                        <span class="detail-label">¿Cuándo se crea?</span>
+                        <p>El cliente reporta una falla o necesita asistencia técnica o logística.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Participantes Mínimos</span>
+                        <p>Cliente, Ingeniero responsable, Coordinador/Gerente de Ingeniería, **Logística o Compras (según aplique)**.</p>
+                    </div>
+                    <div class="detail-block">
+                        <span class="detail-label">Acción Esperada / Objetivo</span>
+                        <p>Atender problema puntual, coordinar visita técnica y/o gestión de refacciones.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-8 p-6 bg-blue-100 rounded-xl shadow-inner border border-babyblue">
+            <h3 class="text-xl font-bold text-navy mb-3">🚨 Consideración Clave</h3>
+            <p class="text-gray-700">Aunque WhatsApp sea el canal de comunicación diaria, **todos los acuerdos, decisiones y tareas formales deben ser registrados en el CRM o Slack** para mantener la trazabilidad oficial, tal como se indica en el anexo de Registro de Acuerdos.</p>
+        </div>
+
+        <footer class="text-center mt-12 text-gray-500 text-sm border-t border-gray-300 pt-4">
+            <p>Anexo a la Política de Comunicación Organizacional | SUMINSA | Versión: Septiembre 2025</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const isActive = button.classList.contains('active');
+
+            // Cierra todos los contenidos (para mantener solo uno abierto a la vez)
+            document.querySelectorAll('.accordion-content').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('open');
+                    item.previousElementSibling.classList.remove('active');
+                }
+            });
+
+            // Alterna el estado del elemento actual
+            if (isActive) {
+                button.classList.remove('active');
+                content.classList.remove('open');
+            } else {
+                button.classList.add('active');
+                content.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Interacciones y Acuerdos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        .text-navy { color: #0A1931; }
+        .bg-navy { background-color: #0A1931; }
+        .text-babyblue { color: #5B92E5; }
+        .border-babyblue { border-color: #5B92E5; }
+        .registro-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #5B92E5; /* Borde izquierdo azul */
+        }
+        .example-header {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .icon-call {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.25rem;
+            color: #5B92E5;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8">
+
+    <div class="container mx-auto max-w-4xl">
+        
+        <header class="text-center mb-10 pb-4 border-b-4 border-babyblue">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-navy mb-2">📝 Registro de Interacciones y Acuerdos</h1>
+            <h2 class="text-xl md:text-2xl text-gray-600 font-medium">Garantizando la Trazabilidad y el Cumplimiento</h2>
+        </header>
+
+        <!-- Objetivo y Lineamientos -->
+        <div class="p-6 bg-blue-100 rounded-xl shadow-inner mb-10 border border-babyblue">
+            <h3 class="text-2xl font-bold text-navy mb-3">🎯 Objetivo</h3>
+            <p class="text-gray-700 mb-4">Documentar todos los **acuerdos relevantes**, decisiones clave y solicitudes entre áreas o con el cliente, para garantizar **trazabilidad, responsabilidad y cumplimiento**.</p>
+            
+            <h3 class="text-2xl font-bold text-navy mt-5 mb-3">📌 Lineamientos Generales</h3>
+            <ul class="list-none space-y-3 text-gray-700">
+                <li class="flex items-start">
+                    <span class="text-babyblue font-extrabold mr-2 mt-1">✓</span>
+                    <span class="flex-1">Toda llamada, reunión, visita o intercambio relevante (ya sea entre áreas o con clientes) debe generar un **registro formal**.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-babyblue font-extrabold mr-2 mt-1">✓</span>
+                    <span class="flex-1">Canal de registro: **CRM, si es cliente**. **Slack, si es interno** o con proveedor.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-babyblue font-extrabold mr-2 mt-1">✓</span>
+                    <span class="flex-1">Si el acuerdo se dio por llamada o WhatsApp, debe **documentarse después** en CRM o Slack.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-babyblue font-extrabold mr-2 mt-1">✓</span>
+                    <span class="flex-1">Se da continuidad en el **mismo hilo** de Slack, evitando confusión.</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="text-2xl font-extrabold text-navy mb-5 text-center">Ejemplos Prácticos de Registro</h2>
+
+        <!-- Ejemplo 1: Llamada Comercial e Ingeniería (Slack) -->
+        <div class="registro-card">
+            <div class="example-header text-navy">
+                <span class="icon-call">📞</span>
+                Registro de Llamada entre **Comercial e Ingeniería** (En Slack)
+            </div>
+            <div class="text-xs text-gray-500 mb-3 border-b pb-2">
+                En canal **#cliente-gruma** | 05/sep/2025 - 10:45 am
+            </div>
+            <p class="text-gray-700 mb-4 bg-gray-50 p-3 rounded-lg border border-gray-200">
+                **📞 Reunión rápida por teléfono con @jose (Ingeniería):**
+                <ul class="list-disc list-inside mt-2 space-y-1">
+                    <li>Confirmamos que el cliente **GRUMA no requiere voltaje trifásico**, sino 220V monofásico.</li>
+                    <li>Se valida que **modelo 7X es compatible** con requerimientos de planta.</li>
+                    <li>**@jose** actualizará plano y lo subirá a Drive **hoy mismo**. <span class="text-red-600 font-semibold">(Responsable y Deadline)</span></li>
+                    <li>**@carla (comercial)** notificará al cliente en el grupo de WA.</li>
+                </ul>
+            </p>
+            <div class="text-green-600 font-bold mt-2">
+                ✅ Acuerdo Registrado y Tarea Asignada.
+            </div>
+        </div>
+
+        <!-- Ejemplo 2: Llamada de Facturación al Cliente (CRM) -->
+        <div class="registro-card">
+            <div class="example-header text-navy">
+                <span class="icon-call">📞</span>
+                Registro de **Llamada de Facturación al Cliente** (En CRM)
+            </div>
+            <div class="text-xs text-gray-500 mb-3 border-b pb-2">
+                Asociado a Cliente LALA Operadora S.A. | 03/Sep/2025 - 12:10 pm
+            </div>
+            <p class="text-gray-700 mb-4 bg-gray-50 p-3 rounded-lg border border-gray-200">
+                **Llamada realizada a Diana – Compras LALA:**
+                <ul class="list-disc list-inside mt-2 space-y-1">
+                    <li>Cliente confirmó que el **PO fue emitido desde la planta**, no desde corporativo.</li>
+                    <li>**Se comprometen a reenviar PO corregido** antes de las 5pm.</li>
+                    <li>Se solicita **factura a nombre de LALA Operadora S.A.** (Dato clave).</li>
+                </ul>
+            </p>
+            <div class="text-yellow-600 font-bold mt-2">
+                ⏳ Pendiente reenvío de PO por cliente.
+            </div>
+        </div>
+
+        <!-- Ejemplo 3: Llamada Administrativa Interna (Slack) -->
+        <div class="registro-card">
+            <div class="example-header text-navy">
+                <span class="icon-call">📞</span>
+                Registro de **Llamada Administrativa Interna** (En canal Slack #viaticos)
+            </div>
+            <div class="text-xs text-gray-500 mb-3 border-b pb-2">
+                En hilo del canal **#viaticos** | 12/sep/2025 – 12:40 pm
+            </div>
+            <p class="text-gray-700 mb-4 bg-gray-50 p-3 rounded-lg border border-gray-200">
+                **Llamada con @laura.m (Tesorería):**
+                <ul class="list-disc list-inside mt-2 space-y-1">
+                    <li>Mendel marcó error al cargar solicitud de viáticos para planta Bimbo Querétaro.</li>
+                    <li>**@laura generará la solicitud manualmente** y hará depósito **mañana antes del mediodía**. <span class="text-red-600 font-semibold">(Responsable y Deadline)</span></li>
+                    <li>Adjunto captura del error en este hilo.</li>
+                </ul>
+            </p>
+            <div class="text-green-600 font-bold mt-2">
+                ✅ Quedamos listos. Gracias.
+            </div>
+        </div>
+        
+        <!-- Consideraciones Adicionales -->
+        <div class="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-babyblue">
+            <h3 class="text-xl font-bold text-navy mb-3">💡 Consideraciones Adicionales</h3>
+            <ul class="list-disc list-outside ml-5 text-gray-700 space-y-2">
+                <li>Si hubo un **cambio importante** respecto a una cotización o alcance técnico, debe quedar evidenciado en CRM y notificado al canal de proyecto.</li>
+                <li>**Complemente con evidencia** si es necesario (capturas de pantalla, archivos adjuntos en el hilo de Slack, etc.).</li>
+                <li>**Evita dar por sentado acuerdos no documentados.** Si no está registrado en el canal formal, no existe.</li>
+            </ul>
+        </div>
+
+        <footer class="text-center mt-12 text-gray-500 text-sm border-t border-gray-300 pt-4">
+            <p>Anexo a la Política de Comunicación Organizacional | SUMINSA | Versión: Septiembre 2025</p>
+        </footer>
+
+    </div>
+</body>
+</html>

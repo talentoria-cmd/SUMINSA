@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Buenas Prácticas de Slack - SUMINSA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .text-navy { color: #0A1931; }
+        .bg-navy { background-color: #0A1931; }
+        .text-babyblue { color: #5B92E5; }
+        .border-babyblue { border-color: #5B92E5; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .section-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-right: 0.75rem;
+            color: #5B92E5;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-10 max-w-5xl">
+        
+        <header class="text-center mb-12 pb-4 border-b-4 border-babyblue">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-navy mb-2">Recomendaciones Estratégicas de Uso de Slack</h1>
+            <p class="text-xl text-gray-600">Comunicación interna eficiente, trazable y organizada.</p>
+        </header>
+
+        <main class="space-y-12">
+            
+            <!-- 1. Estructura de Canales (Channels) -->
+            <section class="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-8 border-babyblue">
+                <div class="section-header">
+                    <span class="section-icon font-extrabold">1.</span>
+                    <h2 class="text-2xl font-bold text-navy">Estructura de Canales (Channels)</h2>
+                </div>
+                <p class="text-gray-700 mb-6">Organiza Slack por función y proyecto. Evita canales genéricos como <code class="bg-gray-100 p-1 rounded font-semibold text-red-600">#general</code> con exceso de tráfico.</p>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-navy text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-semibold">Tipo de Canal</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold">Ejemplo</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold">Objetivo</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">Por equipo</td>
+                                <td class="py-3 px-4 text-sm"><code class="bg-gray-100 p-1 rounded">#comercial</code>, <code class="bg-gray-100 p-1 rounded">#ingenieria</code></td>
+                                <td class="py-3 px-4 text-sm">Comunicación interna del área</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">Por proyecto / cliente</td>
+                                <td class="py-3 px-4 text-sm"><code class="bg-gray-100 p-1 rounded">#cliente-pepsico</code>, <code class="bg-gray-100 p-1 rounded">#instalación-lala-jul25</code></td>
+                                <td class="py-3 px-4 text-sm">Seguimiento puntual y colaboración interárea</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">Temáticos</td>
+                                <td class="py-3 px-4 text-sm"><code class="bg-gray-100 p-1 rounded">#soporte-crm</code>, <code class="bg-gray-100 p-1 rounded">#logística-instalaciones</code></td>
+                                <td class="py-3 px-4 text-sm">Acompañamiento entre equipos transversales</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- REMOVIDO: 📌 Tip: Usa **emojis** en los nombres de canales... -->
+            </section>
+
+            <!-- 2. Uso de Recordatorios y Automatizaciones -->
+            <section class="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-8 border-babyblue">
+                <div class="section-header">
+                    <span class="section-icon font-extrabold">2.</span>
+                    <h2 class="text-2xl font-bold text-navy">Uso de Recordatorios y Automatizaciones</h2>
+                </div>
+                <p class="text-gray-700 mb-4">Slack permite automatizar seguimiento sin depender de la memoria humana:</p>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg border border-babyblue/50">
+                        <strong class="text-navy block mb-1">Comando /remind (Acuerdos y Pendientes):</strong>
+                        <p class="text-sm text-gray-700 italic">
+                            Úsalo para establecer recordatorios personales o en canales.
+                        </p>
+                        <code class="bg-gray-200 p-1 rounded text-sm block mt-2">/remind @maria actualizar CRM del cliente X mañana a las 10am</code>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-babyblue/50">
+                        <strong class="text-navy block mb-1">Slackbot Personalizado (Checklists recurrentes):</strong>
+                        <p class="text-sm text-gray-700 italic">
+                            Programa mensajes de recordatorio de tareas rutinarias.
+                        </p>
+                        <code class="bg-gray-200 p-1 rounded text-sm block mt-2">“¡Feliz lunes! Por favor, actualiza tu estatus de proyectos en CRM antes de las 10am.”</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Integraciones clave con Google Workspace -->
+            <section class="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-8 border-babyblue">
+                <div class="section-header">
+                    <span class="section-icon font-extrabold">3.</span>
+                    <h2 class="text-2xl font-bold text-navy">Integraciones clave con Google Workspace</h2>
+                </div>
+                <p class="text-gray-700 mb-4">Aprovecha al máximo las herramientas que ya utilizamos:</p>
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
+                    <ul class="list-disc list-inside space-y-2 ml-2 text-gray-700">
+                        <li><strong class="text-navy">Google Drive:</strong> Compartir archivos, ver vista previa sin salir de Slack.</li>
+                        <li><strong class="text-navy">Google Calendar:</strong> Ver próximos eventos o reuniones desde Slack.</li>
+                        <!-- Removidos: Google Meet y Google Forms -->
+                    </ul>
+                </div>
+                <p class="text-sm font-semibold mt-4 text-navy">
+                    📌 Consejo: Usa la integración de Google Calendar para enviar recordatorios automáticos en canales de proyectos antes de juntas clave.
+                </p>
+            </section>
+
+            <!-- 4. Conexiones CRM / ERP -->
+            <section class="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-8 border-babyblue">
+                <div class="section-header">
+                    <span class="section-icon font-extrabold">4.</span>
+                    <h2 class="text-2xl font-bold text-navy">Conexiones CRM / ERP (Salesforce)</h2>
+                </div>
+                <p class="text-gray-700 mb-4">Conectar Slack vía Salesforce permite:</p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700">
+                    <li>Recibir **notificaciones automáticas** cuando una oportunidad cambia de etapa.</li>
+                    <li>Comentar registros **sin entrar** al CRM.</li>
+                    <li>Alinear mejor a ingeniería / postventa con comercial.</li>
+                </ul>
+                <p class="text-sm font-semibold mt-4 text-navy">
+                    🎯 Útil para canales tipo <code class="bg-gray-100 p-1 rounded">#cliente-grupo-bimbo</code>, donde se requiere saber cuándo cambia el estatus del pedido o cuándo se agendó instalación.
+                </p>
+            </section>
+
+            <!-- 5. Uso de Hilos y Reacciones (emojis) -->
+            <section class="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-8 border-babyblue">
+                <div class="section-header">
+                    <span class="section-icon font-extrabold">5.</span>
+                    <h2 class="text-2xl font-bold text-navy">Uso de Hilos y Reacciones (emojis)</h2>
+                </div>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700 mb-4">
+                    <li><strong class="text-navy">Hilos (Threads):</strong> Úsalos para no saturar conversaciones. Cada nuevo tema o pregunta, en su propio hilo.</li>
+                    <li><strong class="text-navy">Reacciones (Emojis):</strong> Sistema de gestión rápida:</li>
+                </ul>
+                <div class="overflow-x-auto max-w-lg mx-auto">
+                    <table class="min-w-full bg-gray-50 rounded-lg shadow-inner border border-gray-200">
+                        <tbody class="text-gray-700 divide-y divide-gray-200">
+                            <tr class="hover:bg-white"><td class="py-1 px-4 text-center font-bold text-lg">👀</td><td class="py-1 px-4 text-sm font-medium text-navy">Revisando</td></tr>
+                            <tr class="hover:bg-white"><td class="py-1 px-4 text-center font-bold text-lg">✅</td><td class="py-1 px-4 text-sm font-medium text-navy">Ya quedó / Aprobado</td></tr>
+                            <tr class="hover:bg-white"><td class="py-1 px-4 text-center font-bold text-lg">❌</td><td class="py-1 px-4 text-sm font-medium text-navy">No procede / Se cancela</td></tr>
+                            <tr class="hover:bg-white"><td class="py-1 px-4 text-center font-bold text-lg">⏳</td><td class="py-1 px-4 text-sm font-medium text-navy">En espera</td></tr>
+                            <tr class="hover:bg-white"><td class="py-1 px-4 text-center font-bold text-lg">📌</td><td class="py-1 px-4 text-sm font-medium text-navy">Importante</td></tr>
+                            <tr class="hover:bg-white"><td class="py-1 px-4 text-center font-bold text-lg">🔁</td><td class="py-1 px-4 text-sm font-medium text-navy">Requiere revisión o seguimiento</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-sm font-semibold mt-4 text-navy">
+                    📌 Consejo: Documenta el **"glosario de emojis"** y pégalo en un mensaje fijado (<code class="bg-gray-100 p-1 rounded">📌 Pinned</code>) en cada canal importante.
+                </p>
+            </section>
+            
+            <!-- 6, 7, 9 - Tips Rápidos en Grid -->
+            <!-- Se reubican los tips rápidos en una cuadrícula de 3 columnas para optimizar espacio antes de la IA -->
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- 6. Mensajes fijados y bookmarks -->
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-babyblue">
+                    <div class="section-header">
+                        <span class="section-icon font-extrabold">6.</span>
+                        <h3 class="text-xl font-bold text-navy">Mensajes Fijados y Bookmarks</h3>
+                    </div>
+                    <p class="text-gray-700 mb-2">Usa <code class="bg-gray-100 p-1 rounded">📌 Pin</code> para:</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-sm text-gray-700">
+                        <li>Anclar procedimientos clave (ej. cómo registrar viáticos).</li>
+                        <li>Guardar links de CRM o carpetas importantes.</li>
+                        <li>Tener a mano la minuta de última reunión o acuerdos.</li>
+                    </ul>
+                </div>
+
+                <!-- 7. Buenas prácticas de redacción en Slack (Ejemplo Visual) -->
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-babyblue">
+                    <div class="section-header">
+                        <span class="section-icon font-extrabold">7.</span>
+                        <h3 class="text-xl font-bold text-navy">Buenas Prácticas de Redacción</h3>
+                    </div>
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-sm text-gray-700 mb-4">
+                        <li>No uses Slack como WhatsApp: Evita escribir "Hola" y esperar.</li>
+                        <li>Inicia con **contexto + solicitud concreta**.</li>
+                        <li>Cierra con deadline o pregunta abierta.</li>
+                    </ul>
+                    <div class="bg-gray-200 p-3 rounded-lg border border-gray-400 whitespace-pre-wrap text-sm italic text-gray-800">
+                        <strong class="block mb-1">📌 Ejemplo de mensaje efectivo:</strong>
+                        "@carlos, te comparto la minuta del cliente GRUMA:
+                        1️⃣ Se requiere validar plano.
+                        2️⃣ Hay dudas sobre voltaje.
+                        ¿Nos ayudas con respuesta antes del miércoles?"
+                    </div>
+                </div>
+                
+                <!-- 9. Canal #anuncios y canal #consultas (Original 9) -->
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-babyblue">
+                    <div class="section-header">
+                        <span class="section-icon font-extrabold">9.</span>
+                        <h3 class="text-xl font-bold text-navy">Canales de Anuncios y Consultas</h3>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 ml-4 text-sm text-gray-700">
+                        <li><code class="bg-gray-100 p-1 rounded">#📢-anuncios</code>: Solo Dirección o RH publica. Evita saturar.</li>
+                        <li><code class="bg-gray-100 p-1 rounded">#❓-consultas-operativas</code>: Canal dedicado a resolver dudas sin perder trazabilidad.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 8. Reuniones inteligentes en Slack con IA (NUEVO) -->
+            <section class="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-8 border-babyblue">
+                <div class="section-header">
+                    <span class="section-icon font-extrabold">8.</span>
+                    <h2 class="text-2xl font-bold text-navy">Reuniones inteligentes en Slack con IA</h2>
+                </div>
+                <p class="text-gray-700 mb-6">Aprovecha las funciones de inteligencia artificial para maximizar la productividad y la trazabilidad de los acuerdos.</p>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-navy text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-semibold w-1/4">Herramienta</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold w-1/3">¿Qué hace?</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold w-auto">¿Cómo se usa en esta empresa?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">Slack Clips</td>
+                                <td class="py-3 px-4 text-sm">Graba mensajes de voz o video cortos que los demás pueden ver en su tiempo.</td>
+                                <td class="py-3 px-4 text-sm">Útil para actualizaciones de avance, retroalimentación de líderes o reportes rápidos de campo.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">Slack AI</td>
+                                <td class="py-3 px-4 text-sm">Resume hilos, genera minutas de reuniones, extrae acuerdos y tareas automáticamente.</td>
+                                <td class="py-3 px-4 text-sm">Puede ser usado para registrar acuerdos clave de juntas con equipos internos.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <strong class="text-navy block mb-2">🚀 Mejores prácticas sugeridas:</strong>
+                <ul class="list-disc list-inside space-y-1 ml-4 text-gray-700">
+                    <li>Al finalizar las reuniones, pide a Slack AI: <code class="bg-gray-200 p-1 rounded text-sm">"Resume esta conversación en acuerdos con responsables y tiempos"</code>.</li>
+                    <li>Publica el resumen en el hilo o fíjalo en el canal.</li>
+                </ul>
+                <p class="text-sm font-semibold mt-4 text-navy">
+                    📌 Consejo: Cada reunión importante debe tener un resumen anclado en el canal, y puede completarse con minutas compartidas en Drive si son formales.
+                </p>
+            </section>
+            
+            <!-- 10. Uso de Estatus en Slack (NUEVO) -->
+            <section class="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-8 border-babyblue">
+                <div class="section-header">
+                    <span class="section-icon font-extrabold">10.</span>
+                    <h2 class="text-2xl font-bold text-navy">Uso de Estatus en Slack: Claridad y Visibilidad</h2>
+                </div>
+                <div class="text-gray-700 mb-6 space-y-2">
+                    <p><strong class="font-extrabold text-navy">Reglas generales para el uso de estatus:</strong></p>
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+                        <li>Todo colaborador debe tener un estatus visible durante su jornada laboral.</li>
+                        <li>El estatus debe actualizarse al salir a comer, estar en reunión o fuera de oficina.</li>
+                        <li>Los horarios laborales deben configurarse en Slack de forma predeterminada, para mostrar automáticamente “fuera de línea” al finalizar jornada.</li>
+                        <li>Los íconos deben ser estandarizados por toda la empresa para evitar confusión.</li>
+                        <li>Slack puede conectarse a Google Calendar para actualizar el estatus automáticamente cuando se tiene una reunión agendada.</li>
+                    </ul>
+                </div>
+
+                <p class="font-extrabold text-navy mb-3">Estatus sugeridos y sus íconos oficiales</p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-navy text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-semibold w-1/4">Estado</th>
+                                <th class="py-3 px-4 text-center text-sm font-semibold w-1/6">Emoji sugerido</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold w-auto">Descripción breve</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold w-1/4">Cuándo se usa</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700 divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">En reunión</td>
+                                <td class="py-3 px-4 text-center text-lg">📅</td>
+                                <td class="py-3 px-4 text-sm">En junta (Google Calendar conectado).</td>
+                                <td class="py-3 px-4 text-sm">Cuando el calendario indica reunión.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">Comida</td>
+                                <td class="py-3 px-4 text-center text-lg">🍽️</td>
+                                <td class="py-3 px-4 text-sm">En hora de comida. Regreso pronto.</td>
+                                <td class="py-3 px-4 text-sm">Hora establecida según área.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">Vacaciones / PTO</td>
+                                <td class="py-3 px-4 text-center text-lg">🌴</td>
+                                <td class="py-3 px-4 text-sm">Fuera de oficina. Estoy de vacaciones.</td>
+                                <td class="py-3 px-4 text-sm">Cuando se registra permiso formal.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-medium text-navy">Revisión de tareas / enfoque</td>
+                                <td class="py-3 px-4 text-center text-lg">👓</td>
+                                <td class="py-3 px-4 text-sm">Concentrado. Respondo mensajes en bloques.</td>
+                                <td class="py-3 px-4 text-sm">Tiempo de revisión o análisis.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm border-t border-gray-300 pt-4">
+            <p>Política de Comunicación Organizacional | SUMINSA | Versión: Septiembre 2025</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Grupos WhatsApp con Clientes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        .text-navy { color: #0A1931; }
+        .bg-navy { background-color: #0A1931; }
+        .text-babyblue { color: #5B92E5; }
+        .border-babyblue { border-color: #5B92E5; }
+        .section-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 10px -3px rgba(0, 0, 0, 0.1), 0 3px 5px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-top: 5px solid;
+        }
+        .message-box {
+            background-color: #e6f0ff; /* Fondo claro para simular chat/mensaje */
+            border: 1px solid #c2e0ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        .icon-header {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        .list-icon {
+            color: #5B92E5;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8">
+
+    <div class="container mx-auto max-w-4xl">
+        
+        <header class="text-center mb-10 pb-4 border-b-4 border-babyblue">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-navy mb-2">📱 Grupos de WhatsApp con Clientes</h1>
+            <h2 class="text-xl md:text-2xl text-gray-600 font-medium">Protocolo de Creación, Uso y Cierre Formal</h2>
+        </header>
+
+        <!-- Objetivo -->
+        <div class="section-card border-t-babyblue bg-blue-50">
+            <div class="flex items-center mb-3">
+                <span class="icon-header text-babyblue">🎯</span>
+                <h3 class="text-xl font-bold text-navy">Objetivo</h3>
+            </div>
+            <p class="text-gray-700">Establecer criterios claros para la creación, evolución, participación y cierre de grupos de WhatsApp con clientes, asegurando **orden, trazabilidad y una atención profesional**.</p>
+        </div>
+
+        <!-- Mensaje de Notificación (Previo a la creación) -->
+        <div class="section-card border-t-2 border-green-500">
+            <div class="flex items-center mb-3">
+                <span class="icon-header text-green-600">🧾</span>
+                <h3 class="text-xl font-bold text-navy">Mensaje Privado de Notificación (Previo)</h3>
+            </div>
+            <p class="text-gray-700 mb-3">Notificar al cliente individualmente sobre la creación del grupo y su propósito ANTES de añadirlo.</p>
+            
+            <div class="space-y-4">
+                <div class="message-box border-green-300">
+                    <p class="font-bold text-sm text-green-700 mb-1">Ejemplo 1 – Oportunidad Latente:</p>
+                    <p>“Hola **[Nombre del cliente]**, para brindarte un seguimiento más ágil y resolver cualquier duda técnica o comercial que surja, estaremos creando un grupo de WhatsApp contigo y nuestro gerente comercial. El objetivo es facilitar la validación de esta solución y mantener todo en un solo canal.”</p>
+                </div>
+                <div class="message-box border-green-300">
+                    <p class="font-bold text-sm text-green-700 mb-1">Ejemplo 2 – Postventa o Garantía:</p>
+                    <p>“Hola **[Nombre]**, con el fin de apoyarte mejor y coordinar a las áreas involucradas (ingeniería, soporte y logística), crearemos un grupo temporal de WhatsApp contigo. Esto nos permitirá responder con mayor agilidad y documentar todo en un solo espacio.”</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensaje de Bienvenida en el Grupo -->
+        <div class="section-card border-t-2 border-indigo-500">
+            <div class="flex items-center mb-3">
+                <span class="icon-header text-indigo-600">👥</span>
+                <h3 class="text-xl font-bold text-navy">Mensaje de Bienvenida al Grupo (Una vez creado)</h3>
+            </div>
+            <div class="message-box border-indigo-300">
+                <p class="font-bold mb-2 text-indigo-700">_Buen día, equipo 👋_</p>
+                <p>Creamos este grupo para coordinar el proyecto **[Nombre del Proyecto / Cliente]**. Aquí compartiremos avances, dudas, fechas y materiales. Participamos las personas clave de cada área para asegurarnos de que todo fluya correctamente.</p>
+                
+                <p class="mt-3 font-semibold text-gray-700">Participantes:</p>
+                <ul class="list-none space-y-1 mt-1 text-sm">
+                    <li><span class="list-icon">✅</span> [Nombre] – Cliente</li>
+                    <li><span class="list-icon">✅</span> [Nombre] – Ejecutivo Comercial</li>
+                    <li><span class="list-icon">✅</span> [Nombre] – Gerente Comercial</li>
+                    <li><span class="list-icon">✅</span> [Nombre] – Ingeniería</li>
+                    <li><span class="list-icon">✅</span> [Nombre] – Logística (si aplica)</li>
+                </ul>
+                <p class="mt-3 font-semibold">**([Nombre cliente])** ¿Hay alguien más que consideres que debamos incluir en este grupo?</p>
+                <p class="mt-2 text-indigo-700">¡Gracias por tu confianza y colaboración!</p>
+            </div>
+        </div>
+
+        <!-- Nombre del Grupo y Reglas Clave -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="section-card border-t-2 border-red-500">
+                <div class="flex items-center mb-3">
+                    <span class="icon-header text-red-600">📝</span>
+                    <h3 class="text-xl font-bold text-navy">Nombre del Grupo Sugerido</h3>
+                </div>
+                <p class="font-semibold mb-2">Formato:</p>
+                <div class="message-box bg-red-50 border-red-300 font-mono text-sm">
+                    [Cliente] – [Tipo de Proyecto o Ubicación] – [Mes/Año]
+                </div>
+                <p class="mt-4 font-semibold mb-1">Ejemplos:</p>
+                <ul class="list-disc list-inside ml-2 text-sm space-y-1">
+                    <li>LALA – Proyecto Rayos X – Monterrey Oct2025</li>
+                    <li>PEPSICO – Postventa Seleccionadora – Nov2025</li>
+                </ul>
+            </div>
+
+            <div class="section-card border-t-2 border-yellow-500">
+                <div class="flex items-center mb-3">
+                    <span class="icon-header text-yellow-600">📌</span>
+                    <h3 class="text-xl font-bold text-navy">Reglas Clave del Grupo</h3>
+                </div>
+                <ul class="list-disc list-outside ml-5 text-gray-700 space-y-2 text-sm">
+                    <li>Usar **lenguaje profesional** y directo.</li>
+                    <li>**Registrar acuerdos clave** en CRM o Drive inmediatamente después.</li>
+                    <li>Confirmar recepción con el emoji **👍** o texto.</li>
+                    <li>**Cerrar el grupo** al terminar el servicio o etapa (Ver protocolo).</li>
+                    <li>Evitar temas personales, stickers o mensajes no relacionados.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Cierre del Grupo -->
+        <div class="section-card border-t-4 border-gray-500">
+            <div class="flex items-center mb-3">
+                <span class="icon-header text-gray-600">🕒</span>
+                <h3 class="text-xl font-bold text-navy">Protocolo de Cierre del Grupo</h3>
+            </div>
+            <p class="text-gray-700 mb-3">El cierre formal del grupo es fundamental para indicar el fin de la etapa y mantener la comunicación profesional.</p>
+            
+            <div class="message-box bg-gray-100 border-gray-300">
+                <p class="font-bold text-sm text-gray-700 mb-1">Mensaje de Cierre:</p>
+                <p>“Estimado equipo: Con el equipo **instalado/servicio finalizado** y confirmada su operación, este grupo permanecerá abierto **20 días adicionales** para cualquier duda o comentario urgente.</p>
+                <p class="mt-2">Después de ese periodo, se procederá a **cerrarlo formalmente**. Seguimos siempre disponibles en nuestros canales oficiales (Correo y CRM).</p>
+            </div>
+        </div>
+
+        <footer class="text-center mt-12 text-gray-500 text-sm border-t border-gray-300 pt-4">
+            <p>Anexo a la Política de Comunicación Organizacional | SUMINSA | Versión: Septiembre 2025</p>
+        </footer>
+
+    </div>
+</body>
+</html>
