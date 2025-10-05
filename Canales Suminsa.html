@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Comunicación - Guía Ejecutiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 50vh;
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-12 border-b-4 border-[#5B92E5] pb-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#0A1931] mb-2">Guía Ejecutiva de Canales y Prioridades</h1>
+            <p class="text-lg text-gray-600">La elección adecuada del canal es clave para la eficiencia y la trazabilidad de la comunicación.</p>
+        </header>
+
+        <main>
+            <section id="canales" class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-10 text-[#0A1931]">Canales Oficiales: ¿Dónde Comunicar?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Tarjeta 1: Slack -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center border-t-4 border-[#5B92E5] transition-shadow duration-300 hover:shadow-2xl">
+                        <div class="w-4 h-4 bg-[#5B92E5] rounded-full mb-4"></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#0A1931]">Slack</h3>
+                        <p class="font-semibold text-[#5B92E5] mb-2">Coordinación Interna Rápida</p>
+                        <p class="text-sm text-gray-600 mb-4">Preguntas, estados personales, y coordinación diaria de proyectos.</p>
+                        <div class="w-full text-left text-sm space-y-2 pt-4 border-t border-gray-200">
+                           <p><strong class="text-[#0A1931]">Trazabilidad:</strong> Media (Uso de hilos y canales correctos)</p>
+                                                      <p class="text-red-600 font-bold">Prohibido: Comunicación con clientes y proveedores.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Correo Electrónico -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center border-t-4 border-[#5B92E5] transition-shadow duration-300 hover:shadow-2xl">
+                        <div class="w-4 h-4 bg-[#5B92E5] rounded-full mb-4"></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#0A1931]">Correo Electrónico</h3>
+                        <p class="font-semibold text-[#5B92E5] mb-2">Formalidad y Documentación</p>
+                        <p class="text-sm text-gray-600 mb-4">Comunicados oficiales, envío de documentos legales, formalización de decisiones.</p>
+                         <div class="w-full text-left text-sm space-y-2 pt-4 border-t border-gray-200">
+                           <p><strong class="text-[#0A1931]">Trazabilidad:</strong> Alta (Legal y formal)</p>
+                                                      <p class="text-red-600 font-bold">Prohibido: Operación diaria (pendientes rápidos).</p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: CRM (Salesforce) -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center border-t-4 border-[#5B92E5] transition-shadow duration-300 hover:shadow-2xl">
+                        <div class="w-4 h-4 bg-[#5B92E5] rounded-full mb-4"></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#0A1931]">CRM (Salesforce)</h3>
+                        <p class="font-semibold text-[#5B92E5] mb-2">Registro Central del Cliente</p>
+                        <p class="text-sm text-gray-600 mb-4">Cotizaciones, órdenes, información de ventas y notas de postventa.</p>
+                         <div class="w-full text-left text-sm space-y-2 pt-4 border-t border-gray-200">
+                           <p><strong class="text-[#0A1931]">Trazabilidad:</strong> Obligatoria</p>
+                                                      <p class="text-red-600 font-bold">Prohibido: Mensajes internos, comunicación personal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4: WhatsApp -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center border-t-4 border-[#5B92E5] transition-shadow duration-300 hover:shadow-2xl">
+                        <div class="w-4 h-4 bg-[#5B92E5] rounded-full mb-4"></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#0A1931]">WhatsApp</h3>
+                        <p class="font-semibold text-[#5B92E5] mb-2">Comunicación Externa Táctica</p>
+                        <p class="text-sm text-gray-600 mb-4">Clientes y proveedores en grupos estructurados y autorizados.</p>
+                         <div class="w-full text-left text-sm space-y-2 pt-4 border-t border-gray-200">
+                           <p><strong class="text-[#0A1931]">Trazabilidad:</strong> Media (Requiere resumen en CRM)</p>
+                                                      <p class="text-red-600 font-bold">Prohibido: Comunicación interna entre áreas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 5: Mendel -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center border-t-4 border-[#5B92E5] transition-shadow duration-300 hover:shadow-2xl">
+                        <div class="w-4 h-4 bg-[#5B92E5] rounded-full mb-4"></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#0A1931]">Mendel</h3>
+                        <p class="font-semibold text-[#5B92E5] mb-2">Transacciones Financieras</p>
+                        <p class="text-sm text-gray-600 mb-4">Solicitudes de viáticos, reembolsos, y facturación de viajes.</p>
+                         <div class="w-full text-left text-sm space-y-2 pt-4 border-t border-gray-200">
+                           <p><strong class="text-[#0A1931]">Trazabilidad:</strong> Obligatoria</p>
+                                                     <p class="text-red-600 font-bold">Prohibido: Solicitudes por correo/Slack.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 6: Llamada -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center border-t-4 border-[#5B92E5] transition-shadow duration-300 hover:shadow-2xl">
+                        <div class="w-4 h-4 bg-[#5B92E5] rounded-full mb-4"></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#0A1931]">Llamada</h3>
+                        <p class="font-semibold text-[#5B92E5] mb-2">Resolución Inmediata / Urgencias</p>
+                        <p class="text-sm text-gray-600 mb-4">Ideal para escalamientos urgentes, temas complejos o negociación que requiere respuesta inmediata.</p>
+                         <div class="w-full text-left text-sm space-y-2 pt-4 border-t border-gray-200">
+                           <p><strong class="text-[#0A1931]">Trazabilidad:</strong> Media (Requiere registro manual posterior)</p>
+                           <p><strong class="text-[#0A1931]">Respuesta:</strong> Inmediata</p>
+                           <p class="text-red-600 font-bold">Prohibido: Acuerdos sin documentación posterior en CRM/Slack.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                     
+            <section id="recordatorios" class="bg-[#5B92E5] rounded-lg shadow-2xl p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-8 text-white">4 Puntos Clave para la Trazabilidad</h2>
+                <ul class="space-y-4 text-lg text-white">
+                    <li class="flex items-start">
+                        <span class="text-white mr-3 text-2xl font-bold">✔</span>
+                        <div><strong class="font-extrabold">La Fuente de la Verdad es el CRM:</strong> Toda información del cliente debe actualizarse siempre allí.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-white mr-3 text-2xl font-bold">✔</span>
+                        <div><strong class="font-extrabold">Uso de WhatsApp Interno Prohibido:</strong> Este canal debe ser exclusivo para la comunicación externa con clientes y proveedores.</div>
+                    </li>
+                    <li class="flex items-start">
+                         <span class="text-white mr-3 text-2xl font-bold">✔</span>
+                         <div><strong class="font-extrabold">Documentación de Llamadas:</strong> Toda llamada o acuerdo importante debe tener un resumen registrado en el CRM o Slack.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-white mr-3 text-2xl font-bold">✔</span>
+                        <div><strong class="font-extrabold">Acuse de Recibido Obligatorio:</strong> Confirma la recepción y comprensión de la solicitud dentro del plazo establecido en la política.</div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>Política de Comunicación Organizacional | SUMINSA | Versión: Septiembre 2025</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // El código de la API de Gemini fue removido por solicitud.
+    </script>
+
+</body>
+</html>
